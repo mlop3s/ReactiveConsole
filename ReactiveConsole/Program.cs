@@ -13,12 +13,6 @@ using System.Threading.Tasks;
 
 namespace ReactiveConsole
 {
-//    The Observer pattern was introduced by the Gang of Four(GoF) in Design Patterns:
-//Elements of Reusable Object-Oriented Software(Addison-Wesley Professional, 1994).
-//The pattern defines two components: subject and observer(not to be confused with
-//IObserver of Rx). The observer is the participant that’s interested in an event and
-//subscribes itself to the subject that raises the events.
-
     class Program
     {
         static void Main(string[] args)
@@ -28,11 +22,9 @@ namespace ReactiveConsole
             //FromEnumerable();
             //ReadFile();
             //Explicit();
-            //OnlyOdds();
             //MultiThreaded();
-            Synchronization();
-
-            Console.ReadKey();
+            //Synchronization();
+            OnlyOdds();
         }
 
         private static void OwnImplementation()
@@ -56,11 +48,11 @@ namespace ReactiveConsole
         private static void UsualImplementation()
         {
             IObservable<int> observable =
-             Observable.Generate(
-             0, //Initial state
-             i => i < 10, //Condition (false means terminate)
-             i => i + 1, //Next iteration step
-             i => i * 2); //The value in each iteration
+                Observable.Generate(
+                    0, //Initial state
+                    i => i < 10, //Condition (false means terminate)
+                    i => i + 1, //Next iteration step
+                    i => i * 2); //The value in each iteration
 
             observable.Subscribe(new ConsoleObserver<int>("enumerable"));
         }
