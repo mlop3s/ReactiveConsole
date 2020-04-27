@@ -3,3 +3,5 @@
 ################################################################################
 
 /ReactiveConsole/obj
+/ReactiveConsole/bin/Debug/netcoreapp3.1
+/.vs/ReactiveConsole
